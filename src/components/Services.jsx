@@ -9,10 +9,10 @@ const SERVICES = [
   {
     id:    1,
     icon:  <Sofa size={26} />,
-    title: 'Nội Thất Gỗ & Bàn Ghế Gỗ',
-    desc:  'Thu mua cửa gỗ, bàn ghế, tủ quần áo, giường, kệ sách và mọi loại nội thất gỗ đã qua sử dụng — tình trạng bất kỳ.',
-    img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361214/z7685167018639_b702c3bf01416a6db116b5938f9ad4d7_jrjkgo.jpg',
-    tags:  ['Bàn ghế gỗ ', 'Tủ', 'Bàn ghế', 'Giường'],
+    title: 'Nội Thất Gỗ & Cửa Gỗ Cũ',
+    desc:  'Thu mua cửa gỗ, cửa 4 cánh gỗ, các loại cửa phòng gỗ và mọi loại cửa gỗ đã qua sử dụng — tình trạng bất kỳ.',
+    img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775359961/z7685166979987_d562e889bf26190dd44357ca646a91b4_rsaamr.jpg',
+    tags:  ['Cửa gỗ ', 'Cửa 4 cánh gỗ', 'Cửa phòng gỗ'],
   },
   {
     id:    2,
@@ -26,9 +26,9 @@ const SERVICES = [
     id:    3,
     icon:  <LayoutGrid size={26} />,
     title: 'Cửa cuốn ',
-    desc:  'Thu mua cửa sắt , cửa cuốn cũ , và thiết bị thanh lý công ty.',
+    desc:  'Thu mua cửa nhôm , cửa cuốn cũ , và thiết bị thanh lý công ty.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685166985411_c9b327cc4951283066058a56ad19e277_e1t4tv.jpg',
-    tags:  ['Cửa cuốn ', 'Cửa sắt ', 'Tủ gỗ '],
+    tags:  ['Cửa cuốn', 'Cửa nhôm', 'Cửa phòng nhôm'],
   },
   {
     id:    4,

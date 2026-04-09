@@ -78,14 +78,14 @@ export default function Hero() {
            style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)' }}
           >
             Thu Mua{' '}
-            <span className="text-gradient italic">Các loại cửa gỗ, bàn ghế gỗ</span>
+            <span className="text-gradient italic">Các loại cửa gỗ, cửa 4 cánh gỗ</span>
             <br />& Các loại nhôm{' '}
             <span className="text-gradient italic">Xingfa, cửa cuốn</span>
           </motion.h1>
 
           {/* Sub */}
           <motion.p {...fadeUp(0.36)} className="font-body text-cream/75 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
-            Chúng tôi thu mua toàn bộ nội thất đã qua sử dụng, đồ gỗ, tủ, bàn ghế gỗ, cửa cuốn, cửa nhôm Xingfa —
+            Chúng tôi thu mua toàn bộ nội thất đã qua sử dụng, cửa gỗ, cửa phòng gỗ , cửa 4 cánh gỗ, cửa cuốn, cửa nhôm Xingfa —
             với mức giá <strong className="text-gold font-600">cao nhất thị trường</strong>, nhanh gọn và uy tín.
           </motion.p>
 

@@ -6,7 +6,7 @@ const SERVICES_LIST = [
   'Nội thất gỗ & Sofa',
   'Cửa nhôm Xingfa',
   'Nội thất văn phòng',
-  'Đồ điện lạnh & Gia dụng',
+  'Cửa gỗ cũ & cửa phòng cũ',
   'Thanh lý nguyên căn',
 ];
 

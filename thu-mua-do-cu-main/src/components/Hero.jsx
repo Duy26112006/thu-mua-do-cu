@@ -73,13 +73,13 @@ export default function Hero() {
             Thu mua tận nơi · TP.HCM
           </motion.p>
 
-         {/* Heading */}
+          {/* Heading */}
           <motion.h1 {...fadeUp(0.22)} className="font-display text-cream font-700 leading-[1.1] mb-6"
            style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)' }}
           >
             Chuyên Thu Mua{' '}
-            <span className="text-gradient italic">Cửa Cuốn, Cửa Nhôm</span><br />
-            Kính Cũ & Đồ Gỗ{' '}
+            <span className="text-gradient italic">Cửa Cuốn, Cửa Nhôm Kính Cũ</span><br />
+            & Đồ Gỗ{' '}
             <span className="text-gradient italic">Thanh Toán Tiền Mặt Ngay</span>
           </motion.h1>
 

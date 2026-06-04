@@ -4,7 +4,7 @@ import { Phone, MessageCircle, MapPin, Clock, Star } from "lucide-react";
 
 const CONTACT_INFO = [
   { icon: null, label: "Dia chi", value: "1364 Le Duc Tho, An Hoi Dong, TP.HCM" },
-  { icon: null, label: "Gio lam viec", value: "Thu 2 - CN: 7:00 - 19:00" },
+  { icon: null, label: "Gio lam viec", value: "Thu 2 - CN: 7:00 - 20:00" },
 ];
 
 const REVIEWS = [
@@ -30,7 +30,7 @@ export default function Contact() {
             Goi Hoac Nhan Zalo <span className="text-gradient italic">Nhan Gia Ngay</span>
           </h2>
           <p className="font-body text-muted max-w-md mx-auto text-sm leading-relaxed">
-            Chup anh do can ban — nhan Zalo — nhan bao gia trong 15 phut. Khong mat phi, khong rang buoc.
+            Chup anh do can ban ï¿½ nhan Zalo ï¿½ nhan bao gia trong 15 phut. Khong mat phi, khong rang buoc.
           </p>
         </motion.div>
      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="flex flex-col sm:flex-row gap-5 justify-center mb-16">

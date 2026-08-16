@@ -8,11 +8,11 @@ import { Sofa, DoorClosed, LayoutGrid, Package, ArrowRight } from 'lucide-react'
 const SERVICES = [
   {
     id:    1,
-    icon:  <Sofa size={26} />,
-    title: 'Nội Thất Gỗ & Cửa Gỗ Cũ',
-    desc:  'Thu mua cửa gỗ, cửa 4 cánh gỗ, các loại cửa phòng gỗ và mọi loại cửa gỗ đã qua sử dụng — tình trạng bất kỳ.',
+    icon:  <DoorClosed size={26} />,
+    title: 'Cửa Gỗ Cũ',
+    desc:  'Thu mua cửa gỗ, cửa 4 cánh, cửa phòng gỗ — nguyên khối hay đã qua sử dụng, tình trạng bất kỳ đều nhận.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775359961/z7685166979987_d562e889bf26190dd44357ca646a91b4_rsaamr.jpg',
-    tags:  ['Cửa gỗ ', 'Cửa 4 cánh gỗ', 'Cửa phòng gỗ'],
+    tags:  ['Cửa 4 cánh gỗ', 'Cửa phòng gỗ', 'Cửa gỗ nguyên khối'],
   },
   {
     id:    2,
@@ -33,10 +33,10 @@ const SERVICES = [
   {
     id:    4,
     icon:  <Package size={26} />,
-    title: 'Đồ Gỗ Cũ & Cửa Gỗ Cũ',
-    desc: 'Thu mua đồ gỗ cũ, cửa gỗ, cửa 4 cánh gỗ, bàn ghế gỗ, tủ gỗ đã qua sử dụng — tình trạng bất kỳ, giá tốt nhất.',
+    title: 'Đồ Gỗ Cũ Khác',
+    desc: 'Thu mua bàn ghế gỗ, tủ gỗ, đồ nội thất gỗ đã qua sử dụng — tình trạng bất kỳ, giá tốt nhất.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685166964291_ac0fe9e9a44e126fb86861e7383686a5_jvf1sk.jpg',
-    tags: ['Đồ gỗ cũ', 'Cửa 4 cánh gỗ', 'Cửa phòng gỗ'],
+    tags: ['Bàn ghế gỗ', 'Tủ gỗ', 'Nội thất gỗ'],
   },
 ];
 
@@ -127,7 +127,7 @@ function ServiceCard({ service, index }) {
         </div>
 
         {/* CTA link */}
-        <a
+        
           href="#contact"
           onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
           className="inline-flex items-center gap-1.5 text-sm font-body font-600 text-amber hover:text-walnut transition-colors duration-300 group/link"
@@ -198,7 +198,7 @@ export default function Services() {
               Thu mua nguyên căn, văn phòng, khách sạn — giá tốt nhất, nhanh nhất.
             </p>
           </div>
-          <a
+          
             href="tel:0938228764"
             className="btn-primary relative z-10 whitespace-nowrap text-sm flex-shrink-0"
           >

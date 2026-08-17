@@ -2,6 +2,11 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Phone } from 'lucide-react';
+import {
+  handleContactConversion,
+  PHONE_NUMBER,
+  PHONE_URL,
+} from '../utils/googleAdsConversion';
 
 // Ảnh nền chính
 const HERO_IMG =
@@ -165,16 +170,13 @@ export default function Hero() {
               <ArrowRight size={17} />
             </a>
 
-            {/* Nút gọi điện
-                Không gắn thêm conversion ở đây để tránh tạo chuyển đổi trùng.
-                Đo lường hiện tại ở khu vực Contact.jsx vẫn được giữ nguyên.
-            */}
             <a
-              href="tel:0938228764"
+              href={PHONE_URL}
+              onClick={(event) => handleContactConversion(event, PHONE_URL)}
               className="btn-ghost text-base inline-flex items-center gap-2"
             >
               <Phone size={17} />
-              Gọi Ngay 0938 228 764
+              Gọi Ngay {PHONE_NUMBER}
             </a>
           </motion.div>
         </div>

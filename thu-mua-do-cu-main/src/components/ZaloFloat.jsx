@@ -1,20 +1,19 @@
 import { motion } from 'framer-motion';
+import { handleContactConversion } from '../utils/googleAdsConversion';
 
 export default function ZaloFloat({ phoneNumber = '0938228764' }) {
+  const phoneUrl = `tel:${phoneNumber}`;
+  const zaloUrl = `https://zalo.me/${phoneNumber}`;
+
   return (
     <div className="fixed bottom-6 left-5 z-[999] flex flex-col gap-3 items-start">
 
       {/* Nút Zalo - rung mạnh và gắn mã theo dõi */}
       <motion.a
-        href={`https://zalo.me/${phoneNumber}`}
+        href={zaloUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => {
-          // Báo cáo nhấp chuột về Google Ads
-          if (typeof window.gtag_report_conversion === 'function') {
-            window.gtag_report_conversion(`https://zalo.me/${phoneNumber}`);
-          }
-        }}
+        onClick={(event) => handleContactConversion(event, zaloUrl, { openInNewTab: true })}
         animate={{
           rotate: [0, -15, 15, -15, 15, -10, 10, 0],
           scale: [1, 1.15, 1.15, 1.15, 1.15, 1.1, 1.1, 1],
@@ -32,13 +31,8 @@ export default function ZaloFloat({ phoneNumber = '0938228764' }) {
 
       {/* Nút gọi điện - rung mạnh và gắn mã theo dõi */}
       <motion.a
-        href={`tel:${phoneNumber}`}
-        onClick={() => {
-          // Báo cáo nhấp chuột về Google Ads
-          if (typeof window.gtag_report_conversion === 'function') {
-            window.gtag_report_conversion(`tel:${phoneNumber}`);
-          }
-        }}
+        href={phoneUrl}
+        onClick={(event) => handleContactConversion(event, phoneUrl)}
         animate={{
           scale: [1, 1.12, 0.95, 1.12, 0.95, 1.08, 1],
           x: [0, -4, 4, -4, 4, -2, 0],

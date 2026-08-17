@@ -2,12 +2,17 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
+import {
+  handleContactConversion,
+  PHONE_NUMBER,
+  PHONE_URL,
+} from '../utils/googleAdsConversion';
 
 const NAV_LINKS = [
-  { label: 'Trang chủ',  href: '#hero' },
-  { label: 'Dịch vụ',    href: '#services' },
-  { label: 'Quy trình',  href: '#process' },
-  { label: 'Liên hệ',    href: '#contact' },
+  { label: 'Trang chủ',  href: '/#hero' },
+  { label: 'Dịch vụ',    href: '/#services' },
+  { label: 'Quy trình',  href: '/#process' },
+  { label: 'Liên hệ',    href: '/#contact' },
 ];
 
 export default function Header() {
@@ -29,8 +34,15 @@ export default function Header() {
 
   const handleNavClick = (href) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    const hash = href.includes('#') ? `#${href.split('#')[1]}` : '';
+
+    if (window.location.pathname === '/' && hash) {
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    window.location.href = href;
   };
 
   return (
@@ -50,7 +62,7 @@ export default function Header() {
 
           {/* ── Logo ── */}
           <button
-            onClick={() => handleNavClick('#hero')}
+            onClick={() => handleNavClick('/#hero')}
             className="flex items-center gap-3 group"
           >
             {/* Icon logo: chữ TM cách điệu */}
@@ -87,16 +99,12 @@ export default function Header() {
           {/* ── CTA ── */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:0938228764"
-              onClick={() => {
-                if (typeof window.gtag_report_conversion === 'function') {
-                  window.gtag_report_conversion('tel:0938228764');
-                }
-              }}
+              href={PHONE_URL}
+              onClick={(event) => handleContactConversion(event, PHONE_URL)}
               className="flex items-center gap-2 text-sm font-body font-600 text-cream/90 hover:text-gold transition-colors duration-300 cursor-pointer"
             >
               <Phone size={15} className="text-amber" />
-              0938228764
+              {PHONE_NUMBER}
             </a>
             <button
               onClick={() => handleNavClick('#contact')}
@@ -167,15 +175,11 @@ export default function Header() {
               {/* Bottom CTA */}
               <div className="p-6 border-t border-white/10 space-y-3">
                 <a
-                  href="tel:0938228764"
-                  onClick={() => {
-                    if (typeof window.gtag_report_conversion === 'function') {
-                      window.gtag_report_conversion('tel:0938228764');
-                    }
-                  }}
+                  href={PHONE_URL}
+                  onClick={(event) => handleContactConversion(event, PHONE_URL)}
                   className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full border border-amber/60 text-amber font-body font-600 text-sm cursor-pointer"
                 >
-                  <Phone size={15} /> 0938228764
+                  <Phone size={15} /> {PHONE_NUMBER}
                 </a>
                 <button
                   onClick={() => handleNavClick('#contact')}

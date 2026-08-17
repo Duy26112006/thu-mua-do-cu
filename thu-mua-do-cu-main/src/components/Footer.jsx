@@ -1,13 +1,18 @@
 // Footer.jsx – Footer đầy đủ với link, thông tin, copyright
-import { motion } from 'framer-motion';
 import { Phone, MessageSquare, MapPin, ChevronRight } from 'lucide-react';
+import {
+  handleContactConversion,
+  PHONE_NUMBER,
+  PHONE_URL,
+  ZALO_URL,
+} from '../utils/googleAdsConversion';
 
 const SERVICES_LIST = [
-  'Nội thất gỗ & Sofa',
-  'Cửa nhôm Xingfa',
-  'Nội thất văn phòng',
-  'Cửa gỗ cũ & cửa phòng cũ',
-  'Thanh lý nguyên căn',
+  { label: 'Thu mua cửa gỗ cũ', href: '/thu-mua-cua-go-cu/' },
+  { label: 'Thu mua cửa nhôm cũ', href: '/thu-mua-cua-nhom-cu/' },
+  { label: 'Thu mua cửa nhôm Xingfa cũ', href: '/thu-mua-cua-nhom-xingfa-cu/' },
+  { label: 'Đồ gỗ cũ khác', href: '/#services' },
+  { label: 'Liên hệ thu mua tận nơi', href: '/#contact' },
 ];
 
 const AREAS = [
@@ -16,11 +21,6 @@ const AREAS = [
 ];
 
 export default function Footer() {
-  const scrollTo = (href) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <footer
       className="grain-overlay relative pt-16 pb-6"
@@ -59,11 +59,11 @@ export default function Footer() {
 
             {/* Contacts */}
             <div className="space-y-3">
-              <a href="tel:0938228764" className="flex items-center gap-2.5 text-cream/70 hover:text-gold text-sm font-body transition-colors duration-300">
-                <Phone size={14} className="text-amber flex-shrink-0" /> 0938228764 
+              <a href={PHONE_URL} onClick={(event) => handleContactConversion(event, PHONE_URL)} className="flex items-center gap-2.5 text-cream/70 hover:text-gold text-sm font-body transition-colors duration-300">
+                <Phone size={14} className="text-amber flex-shrink-0" /> {PHONE_NUMBER}
               </a>
-              <a href="https://zalo.me/0938228764" className="flex items-center gap-2.5 text-cream/70 hover:text-gold text-sm font-body transition-colors duration-300">
-                <MessageSquare size={14} className="text-amber flex-shrink-0" /> Zalo: 0938228764
+              <a href={ZALO_URL} target="_blank" rel="noopener noreferrer" onClick={(event) => handleContactConversion(event, ZALO_URL, { openInNewTab: true })} className="flex items-center gap-2.5 text-cream/70 hover:text-gold text-sm font-body transition-colors duration-300">
+                <MessageSquare size={14} className="text-amber flex-shrink-0" /> Zalo: {PHONE_NUMBER}
               </a>
               <span className="flex items-start gap-2.5 text-cream/70 text-sm font-body">
                 <MapPin size={14} className="text-amber flex-shrink-0 mt-0.5" /> TP. Hồ Chí Minh
@@ -75,15 +75,15 @@ export default function Footer() {
           <div>
             <h4 className="font-display text-cream font-600 text-lg mb-5">Dịch Vụ</h4>
             <ul className="space-y-2.5">
-              {SERVICES_LIST.map((s) => (
-                <li key={s}>
-                  <button
-                    onClick={() => scrollTo('#services')}
+              {SERVICES_LIST.map((service) => (
+                <li key={service.href}>
+                  <a
+                    href={service.href}
                     className="flex items-center gap-1.5 text-cream/55 hover:text-gold text-sm font-body transition-colors duration-300 text-left"
                   >
                     <ChevronRight size={13} className="text-amber/60 flex-shrink-0" />
-                    {s}
-                  </button>
+                    {service.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -94,19 +94,19 @@ export default function Footer() {
             <h4 className="font-display text-cream font-600 text-lg mb-5">Điều Hướng</h4>
             <ul className="space-y-2.5">
               {[
-                ['Trang chủ',  '#hero'],
-                ['Dịch vụ',   '#services'],
-                ['Quy trình', '#process'],
-                ['Liên hệ',   '#contact'],
+                ['Trang chủ',  '/#hero'],
+                ['Dịch vụ',   '/#services'],
+                ['Quy trình', '/#process'],
+                ['Liên hệ',   '/#contact'],
               ].map(([label, href]) => (
                 <li key={href}>
-                  <button
-                    onClick={() => scrollTo(href)}
+                  <a
+                    href={href}
                     className="flex items-center gap-1.5 text-cream/55 hover:text-gold text-sm font-body transition-colors duration-300"
                   >
                     <ChevronRight size={13} className="text-amber/60 flex-shrink-0" />
                     {label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>

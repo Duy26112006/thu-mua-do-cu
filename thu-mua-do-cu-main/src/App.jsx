@@ -6,20 +6,31 @@ import Process  from './components/Process';
 import Contact  from './components/Contact';
 import Footer   from './components/Footer';
 import ZaloFloat from './components/ZaloFloat';
+import ServicePage from './components/ServicePage';
+import { getServicePageFromPath } from './data/servicePages';
 
 export default function App() {
+  const servicePage = getServicePageFromPath(window.location.pathname);
+
   return (
     <>
-      {/* SEO: lang="vi" đã set trong index.html */}
       <Header />
       <main>
-        <Hero />
-        <Services />
-        <Process />
-        <Contact />
+        {servicePage ? (
+          <>
+            <ServicePage service={servicePage} />
+            <Contact />
+          </>
+        ) : (
+          <>
+            <Hero />
+            <Services />
+            <Process />
+            <Contact />
+          </>
+        )}
       </main>
       <Footer />
-      {/* Nút Zalo cố định góc phải màn hình */}
       <ZaloFloat phoneNumber="0938228764" />
     </>
   );

@@ -2,7 +2,12 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Sofa, DoorClosed, LayoutGrid, Package, ArrowRight } from 'lucide-react';
+import { DoorClosed, LayoutGrid, Package, ArrowRight } from 'lucide-react';
+import {
+  handleContactConversion,
+  PHONE_NUMBER,
+  PHONE_URL,
+} from '../utils/googleAdsConversion';
 
 // Ảnh Unsplash theo từng dịch vụ (furniture, aluminum, living room, misc)
 const SERVICES = [
@@ -13,6 +18,7 @@ const SERVICES = [
     desc:  'Thu mua cửa gỗ, cửa 4 cánh, cửa phòng gỗ — nguyên khối hay đã qua sử dụng, tình trạng bất kỳ đều nhận.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775359961/z7685166979987_d562e889bf26190dd44357ca646a91b4_rsaamr.jpg',
     tags:  ['Cửa 4 cánh gỗ', 'Cửa phòng gỗ', 'Cửa gỗ nguyên khối'],
+    href:  '/thu-mua-cua-go-cu/',
   },
   {
     id:    2,
@@ -21,14 +27,16 @@ const SERVICES = [
     desc: 'Thu mua cửa nhôm kính cũ, cửa nhôm Xingfa tháo dỡ, vách ngăn nhôm kính — còn mới hay đã qua sử dụng đều nhận.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685167016021_2faea2a1c3d0922c86f0d0c559215ac1_j9zzpo.jpg',
     tags:  ['Xingfa', 'Cửa nhôm', 'Vách ngăn'],
+    href:  '/thu-mua-cua-nhom-xingfa-cu/',
   },
   {
     id:    3,
     icon:  <LayoutGrid size={26} />,
-    title: 'Cửa cuốn ',
-    desc:  'Thu mua cửa nhôm , cửa cuốn cũ , và thiết bị thanh lý công ty.',
+    title: 'Cửa Nhôm Cũ',
+    desc:  'Thu mua cửa nhôm kính cũ, khung nhôm và vách ngăn nhôm kính từ nhà ở, cửa hàng hoặc văn phòng.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685166985411_c9b327cc4951283066058a56ad19e277_e1t4tv.jpg',
-    tags: ['Cửa nhôm kính cũ', 'Xingfa', 'Vách ngăn'],
+    tags: ['Cửa nhôm kính cũ', 'Khung nhôm', 'Vách ngăn'],
+    href: '/thu-mua-cua-nhom-cu/',
   },
   {
     id:    4,
@@ -37,6 +45,7 @@ const SERVICES = [
     desc: 'Thu mua bàn ghế gỗ, tủ gỗ, đồ nội thất gỗ đã qua sử dụng — tình trạng bất kỳ, giá tốt nhất.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685166964291_ac0fe9e9a44e126fb86861e7383686a5_jvf1sk.jpg',
     tags: ['Bàn ghế gỗ', 'Tủ gỗ', 'Nội thất gỗ'],
+    href: '/#contact',
   },
 ];
 
@@ -127,12 +136,11 @@ function ServiceCard({ service, index }) {
         </div>
 
         {/* CTA link */}
-        
-          href="#contact"
-          onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+        <a
+          href={service.href}
           className="inline-flex items-center gap-1.5 text-sm font-body font-600 text-amber hover:text-walnut transition-colors duration-300 group/link"
         >
-          Gửi yêu cầu
+          {service.id <= 3 ? 'Xem chi tiết dịch vụ' : 'Gửi yêu cầu'}
           <ArrowRight size={15} className="group-hover/link:translate-x-1 transition-transform duration-300" />
         </a>
       </div>
@@ -198,11 +206,12 @@ export default function Services() {
               Thu mua nguyên căn, văn phòng, khách sạn — giá tốt nhất, nhanh nhất.
             </p>
           </div>
-          
-            href="tel:0938228764"
+          <a
+            href={PHONE_URL}
+            onClick={(event) => handleContactConversion(event, PHONE_URL)}
             className="btn-primary relative z-10 whitespace-nowrap text-sm flex-shrink-0"
           >
-            📞 0938228764
+            📞 {PHONE_NUMBER}
           </a>
         </motion.div>
       </div>

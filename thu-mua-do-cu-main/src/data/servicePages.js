@@ -1,8 +1,5 @@
-const CLOUDINARY_IMAGES = {
-  wood: 'https://res.cloudinary.com/dhshucomg/image/upload/v1775359961/z7685166979987_d562e889bf26190dd44357ca646a91b4_rsaamr.jpg',
-  xingfa: 'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685167016021_2faea2a1c3d0922c86f0d0c559215ac1_j9zzpo.jpg',
-  aluminum: 'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685166985411_c9b327cc4951283066058a56ad19e277_e1t4tv.jpg',
-};
+const REAL_IMAGE_BASE = '/images/thuc-te';
+const realImage = (filename) => `${REAL_IMAGE_BASE}/${filename}`;
 
 export const servicePages = {
   'thu-mua-cua-go-cu': {
@@ -11,8 +8,10 @@ export const servicePages = {
     eyebrow: 'Dịch vụ cửa gỗ cũ tại TP.HCM',
     h1: 'Thu Mua Cửa Gỗ Cũ Tận Nơi Tại TP.HCM',
     intro: 'Nhận thu mua các loại cửa gỗ đã qua sử dụng khi sửa nhà, thay cửa hoặc thanh lý công trình. Khách hàng có thể gửi hình ảnh qua Zalo để trao đổi trước về loại cửa, kích thước và tình trạng thực tế.',
-    image: CLOUDINARY_IMAGES.wood,
+    image: realImage('cua-go-4-canh-hoa-van-thuc-te.webp'),
     imageAlt: 'Cửa gỗ cũ được tháo dỡ để thu mua tại TP.HCM',
+    overviewImage: realImage('bo-cua-go-da-thao.webp'),
+    overviewImageAlt: 'Nhiều bộ cửa gỗ cũ đã được tháo và xếp cùng nhau',
     overviewTitle: 'Những loại cửa gỗ cũ nhận thu mua',
     overview: [
       'Dịch vụ phù hợp với hộ gia đình, chủ nhà, đơn vị sửa chữa và công trình đang cần thanh lý cửa gỗ không còn sử dụng. Việc đánh giá dựa trên vật liệu, kết cấu, kích thước, số lượng và khả năng tháo dỡ tại địa điểm.',
@@ -20,9 +19,17 @@ export const servicePages = {
     ],
     itemsTitle: 'Các hạng mục cửa gỗ thường gặp',
     items: [
-      { title: 'Cửa phòng bằng gỗ', text: 'Cửa phòng ngủ, cửa thông phòng và bộ cửa kèm khung còn nguyên hoặc đã tháo rời.' },
-      { title: 'Cửa gỗ nhiều cánh', text: 'Cửa hai cánh, bốn cánh và cửa mặt tiền bằng gỗ với nhiều kích thước khác nhau.' },
-      { title: 'Cửa gỗ nguyên khối', text: 'Cửa gỗ tự nhiên, cánh dày hoặc bộ cửa có kết cấu chắc chắn cần khảo sát thực tế.' },
+      { title: 'Cửa phòng bằng gỗ', text: 'Cửa phòng ngủ, cửa thông phòng và bộ cửa kèm khung còn nguyên hoặc đã tháo rời.', image: realImage('cua-go-phong-cu.webp'), imageAlt: 'Một cánh cửa phòng bằng gỗ màu nâu' },
+      { title: 'Cửa gỗ nhiều cánh', text: 'Cửa hai cánh, bốn cánh và cửa mặt tiền bằng gỗ với nhiều kích thước khác nhau.', image: realImage('cua-go-nhieu-canh-thuc-te.webp'), imageAlt: 'Nhiều cánh cửa gỗ được xếp cạnh nhau' },
+      { title: 'Cửa gỗ nguyên khối', text: 'Cửa gỗ tự nhiên, cánh dày hoặc bộ cửa có kết cấu chắc chắn cần khảo sát thực tế.', image: realImage('cua-go-cham-hoa-van.webp'), imageAlt: 'Bộ cửa gỗ nhiều cánh có hoa văn chạm nổi' },
+    ],
+    galleryTitle: 'Hình ảnh cửa gỗ thực tế',
+    gallery: [
+      { src: realImage('cua-go-4-canh-hoa-van-thuc-te.webp'), alt: 'Bộ cửa gỗ bốn cánh có hoa văn', caption: 'Cửa gỗ nhiều cánh' },
+      { src: realImage('cua-go-phong-cu.webp'), alt: 'Cánh cửa phòng gỗ màu nâu', caption: 'Cửa phòng gỗ cũ' },
+      { src: realImage('bo-cua-go-da-thao.webp'), alt: 'Nhiều cánh cửa gỗ đã được tháo rời', caption: 'Bộ cửa gỗ đã tháo' },
+      { src: realImage('cua-go-cham-hoa-van.webp'), alt: 'Cửa gỗ có chi tiết chạm hoa văn', caption: 'Cửa gỗ chạm hoa văn' },
+      { src: realImage('cua-go-cu-can-thanh-ly.webp'), alt: 'Hai cánh cửa gỗ cũ dựng ngoài trời', caption: 'Cửa gỗ cần thanh lý' },
     ],
     evaluationTitle: 'Thông tin cần có khi gửi yêu cầu',
     evaluation: [
@@ -44,8 +51,10 @@ export const servicePages = {
     eyebrow: 'Dịch vụ cửa nhôm cũ tại TP.HCM',
     h1: 'Thu Mua Cửa Nhôm Cũ, Cửa Nhôm Kính Cũ Tại TP.HCM',
     intro: 'Nhận thu mua cửa nhôm cũ và cửa nhôm kính đã qua sử dụng từ nhà ở, cửa hàng, văn phòng hoặc công trình cải tạo. Dịch vụ tập trung vào các bộ cửa nhôm phổ thông, vách nhôm kính và khung nhôm cần thanh lý.',
-    image: CLOUDINARY_IMAGES.aluminum,
+    image: realImage('cua-nhom-kinh-trang-thuc-te.webp'),
     imageAlt: 'Cửa nhôm kính cũ cần thanh lý tại TP.HCM',
+    overviewImage: realImage('thao-do-khung-nhom.webp'),
+    overviewImageAlt: 'Khung nhôm đang được tháo dỡ bên trong công trình',
     overviewTitle: 'Thu mua cửa nhôm cũ theo hiện trạng thực tế',
     overview: [
       'Cửa nhôm cũ có nhiều hệ khung, độ dày và kiểu kính khác nhau. Vì vậy, thông tin về kích thước, số lượng, loại cửa mở và tình trạng kính giúp việc trao đổi ban đầu rõ ràng hơn.',
@@ -53,9 +62,17 @@ export const servicePages = {
     ],
     itemsTitle: 'Các loại cửa nhôm cũ có thể gửi xem',
     items: [
-      { title: 'Cửa nhôm kính phổ thông', text: 'Cửa đi, cửa sổ và bộ khung nhôm kính đang lắp hoặc đã được tháo khỏi công trình.' },
-      { title: 'Vách ngăn nhôm kính', text: 'Vách văn phòng, vách cửa hàng và khung nhôm kính cần tháo dỡ khi cải tạo mặt bằng.' },
-      { title: 'Khung nhôm và phụ kiện', text: 'Khung cửa, cánh cửa cùng kính, bản lề, khóa hoặc ray trượt còn đi kèm.' },
+      { title: 'Cửa nhôm kính phổ thông', text: 'Cửa đi, cửa sổ và bộ khung nhôm kính đang lắp hoặc đã được tháo khỏi công trình.', image: realImage('cua-nhom-kinh-mot-canh.webp'), imageAlt: 'Cửa nhôm kính một cánh màu trắng' },
+      { title: 'Vách ngăn nhôm kính', text: 'Vách văn phòng, vách cửa hàng và khung nhôm kính cần tháo dỡ khi cải tạo mặt bằng.', image: realImage('vach-cua-nhom-kinh.webp'), imageAlt: 'Dãy vách và cửa nhôm kính màu trắng' },
+      { title: 'Khung nhôm và phụ kiện', text: 'Khung cửa, cánh cửa cùng kính, bản lề, khóa hoặc ray trượt còn đi kèm.', image: realImage('khung-nhom-da-thao.webp'), imageAlt: 'Khung nhôm đã tháo được tập kết ngoài đường' },
+    ],
+    galleryTitle: 'Hình ảnh cửa nhôm cũ thực tế',
+    gallery: [
+      { src: realImage('cua-nhom-kinh-trang-thuc-te.webp'), alt: 'Các bộ cửa nhôm kính trắng dựng cạnh nhau', caption: 'Cửa nhôm kính trắng' },
+      { src: realImage('cua-nhom-nha-ve-sinh.webp'), alt: 'Cửa nhôm kính mờ dùng cho khu vệ sinh', caption: 'Cửa nhôm nhà vệ sinh' },
+      { src: realImage('cua-nhom-kinh-tap-ket.webp'), alt: 'Nhiều khung cửa nhôm kính được xếp cùng nhau', caption: 'Cửa nhôm kính đã tháo' },
+      { src: realImage('khung-nhom-da-thao.webp'), alt: 'Các thanh khung nhôm đã tháo và tập kết', caption: 'Khung nhôm đã tháo' },
+      { src: realImage('thao-do-khung-nhom.webp'), alt: 'Hiện trạng tháo dỡ khung nhôm trong công trình', caption: 'Tháo dỡ khung nhôm' },
     ],
     evaluationTitle: 'Yếu tố cần kiểm tra trước khi thu mua',
     evaluation: [
@@ -77,8 +94,10 @@ export const servicePages = {
     eyebrow: 'Dịch vụ cửa nhôm Xingfa cũ tại TP.HCM',
     h1: 'Thu Mua Cửa Nhôm Xingfa Cũ Tận Nơi Tại TP.HCM',
     intro: 'Nhận xem và thu mua các bộ cửa nhôm Xingfa cũ khi gia chủ hoặc công trình thay đổi thiết kế. Việc đánh giá chú trọng hệ nhôm, quy cách cánh, kính, phụ kiện và mức độ nguyên vẹn của cả bộ cửa.',
-    image: CLOUDINARY_IMAGES.xingfa,
-    imageAlt: 'Bộ cửa nhôm Xingfa cũ tại công trình ở TP.HCM',
+    image: realImage('cua-nhom-kinh-xam-mat-tien-thuc-te.webp'),
+    imageAlt: 'Bộ cửa nhôm kính màu xám nhiều cánh ở mặt tiền',
+    overviewImage: realImage('cua-nhom-kinh-xam-cua-di.webp'),
+    overviewImageAlt: 'Bộ cửa đi nhôm kính màu xám nhiều cánh',
     overviewTitle: 'Đánh giá riêng cho cửa nhôm Xingfa đã qua sử dụng',
     overview: [
       'Cửa nhôm Xingfa thường được lắp thành bộ gồm khung, cánh, kính và phụ kiện đồng bộ. Khi gửi yêu cầu, hình ảnh tem hệ nhôm nếu còn, góc khung, bản lề, khóa và toàn bộ bộ cửa sẽ giúp nhận diện chính xác hơn.',
@@ -86,9 +105,17 @@ export const servicePages = {
     ],
     itemsTitle: 'Hạng mục cửa nhôm Xingfa nhận xem xét',
     items: [
-      { title: 'Cửa đi Xingfa', text: 'Cửa đi một cánh, hai cánh hoặc nhiều cánh sử dụng khung nhôm Xingfa và kính.' },
-      { title: 'Cửa sổ Xingfa', text: 'Cửa sổ mở quay, mở hất hoặc mở lùa cùng khung và phụ kiện hiện có.' },
-      { title: 'Bộ cửa và vách kính đồng bộ', text: 'Cụm cửa kết hợp vách kính, khung bao và các phụ kiện cần thanh lý cùng nhau.' },
+      { title: 'Cửa đi Xingfa', text: 'Cửa đi một cánh, hai cánh hoặc nhiều cánh sử dụng khung nhôm Xingfa và kính.', image: realImage('cua-nhom-kinh-xam-hai-canh.webp'), imageAlt: 'Cửa đi nhôm kính màu xám hai cánh' },
+      { title: 'Cửa sổ Xingfa', text: 'Cửa sổ mở quay, mở hất hoặc mở lùa cùng khung và phụ kiện hiện có.', image: realImage('cua-nhom-kinh-xam-mot-canh.webp'), imageAlt: 'Một cánh cửa nhôm kính màu xám mở quay' },
+      { title: 'Bộ cửa và vách kính đồng bộ', text: 'Cụm cửa kết hợp vách kính, khung bao và các phụ kiện cần thanh lý cùng nhau.', image: realImage('cua-nhom-kinh-xam-nhieu-canh.webp'), imageAlt: 'Bộ cửa nhôm kính màu xám kết hợp vách kính' },
+    ],
+    galleryTitle: 'Một số mẫu cửa nhôm kính thường gặp',
+    gallery: [
+      { src: realImage('cua-nhom-kinh-xam-mat-tien-thuc-te.webp'), alt: 'Cửa nhôm kính màu xám bốn cánh ở mặt tiền', caption: 'Cửa nhôm kính mặt tiền' },
+      { src: realImage('cua-nhom-kinh-xam-hai-canh.webp'), alt: 'Cửa nhôm kính màu xám hai cánh', caption: 'Cửa nhôm kính hai cánh' },
+      { src: realImage('cua-nhom-kinh-xam-mot-canh.webp'), alt: 'Cửa nhôm kính màu xám một cánh', caption: 'Cửa nhôm kính một cánh' },
+      { src: realImage('cua-nhom-kinh-gap.webp'), alt: 'Bộ cửa nhôm kính màu sáng có nhiều cánh gấp', caption: 'Cửa nhôm kính nhiều cánh' },
+      { src: realImage('cua-nhom-kinh-xam-cua-di.webp'), alt: 'Cửa đi nhôm kính màu xám nhiều cánh', caption: 'Cửa đi hệ nhôm kính' },
     ],
     evaluationTitle: 'Thông tin giúp nhận diện bộ cửa Xingfa',
     evaluation: [

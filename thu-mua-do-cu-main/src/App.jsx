@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <Header forceSolid={Boolean(servicePage)} />
       <main>
         {servicePage ? (
           <>
@@ -31,7 +31,7 @@ export default function App() {
         )}
       </main>
       <Footer />
-      <ZaloFloat phoneNumber="0938228764" />
+      <ZaloFloat phoneNumber="0938228764" hideInitially={Boolean(servicePage)} />
     </>
   );
 }

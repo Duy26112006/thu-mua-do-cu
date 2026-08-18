@@ -23,7 +23,7 @@ const AREAS = [
 export default function Footer() {
   return (
     <footer
-      className="grain-overlay relative pt-16 pb-6"
+      className="grain-overlay relative pb-24 pt-16 lg:pb-6"
       style={{ background: 'var(--walnut)' }}
     >
       {/* Top accent line */}

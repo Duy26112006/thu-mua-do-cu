@@ -1,4 +1,4 @@
-// Services.jsx – Các dịch vụ thu mua với ảnh lazy-load từ Unsplash
+// Services.jsx – Các dịch vụ thu mua với ảnh thực tế lazy-load
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -9,14 +9,14 @@ import {
   PHONE_URL,
 } from '../utils/googleAdsConversion';
 
-// Ảnh Unsplash theo từng dịch vụ (furniture, aluminum, living room, misc)
 const SERVICES = [
   {
     id:    1,
     icon:  <DoorClosed size={26} />,
     title: 'Cửa Gỗ Cũ',
     desc:  'Thu mua cửa gỗ, cửa 4 cánh, cửa phòng gỗ — nguyên khối hay đã qua sử dụng, tình trạng bất kỳ đều nhận.',
-    img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775359961/z7685166979987_d562e889bf26190dd44357ca646a91b4_rsaamr.jpg',
+    img:   '/images/thuc-te/cua-go-4-canh-hoa-van-thuc-te.webp',
+    imgAlt: 'Bộ cửa gỗ bốn cánh có hoa văn chạm nổi',
     tags:  ['Cửa 4 cánh gỗ', 'Cửa phòng gỗ', 'Cửa gỗ nguyên khối'],
     href:  '/thu-mua-cua-go-cu/',
   },
@@ -25,7 +25,8 @@ const SERVICES = [
     icon:  <DoorClosed size={26} />,
     title: 'Cửa Nhôm Xingfa',
     desc: 'Thu mua cửa nhôm kính cũ, cửa nhôm Xingfa tháo dỡ, vách ngăn nhôm kính — còn mới hay đã qua sử dụng đều nhận.',
-    img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685167016021_2faea2a1c3d0922c86f0d0c559215ac1_j9zzpo.jpg',
+    img:   '/images/thuc-te/cua-nhom-kinh-xam-mat-tien-thuc-te.webp',
+    imgAlt: 'Bộ cửa nhôm kính màu xám nhiều cánh',
     tags:  ['Xingfa', 'Cửa nhôm', 'Vách ngăn'],
     href:  '/thu-mua-cua-nhom-xingfa-cu/',
   },
@@ -34,7 +35,8 @@ const SERVICES = [
     icon:  <LayoutGrid size={26} />,
     title: 'Cửa Nhôm Cũ',
     desc:  'Thu mua cửa nhôm kính cũ, khung nhôm và vách ngăn nhôm kính từ nhà ở, cửa hàng hoặc văn phòng.',
-    img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685166985411_c9b327cc4951283066058a56ad19e277_e1t4tv.jpg',
+    img:   '/images/thuc-te/cua-nhom-kinh-trang-thuc-te.webp',
+    imgAlt: 'Các bộ cửa nhôm kính trắng được xếp cạnh nhau',
     tags: ['Cửa nhôm kính cũ', 'Khung nhôm', 'Vách ngăn'],
     href: '/thu-mua-cua-nhom-cu/',
   },
@@ -44,6 +46,7 @@ const SERVICES = [
     title: 'Đồ Gỗ Cũ Khác',
     desc: 'Thu mua bàn ghế gỗ, tủ gỗ, đồ nội thất gỗ đã qua sử dụng — tình trạng bất kỳ, giá tốt nhất.',
     img:   'https://res.cloudinary.com/dhshucomg/image/upload/v1775361213/z7685166964291_ac0fe9e9a44e126fb86861e7383686a5_jvf1sk.jpg',
+    imgAlt: 'Đồ gỗ cũ trong không gian nội thất',
     tags: ['Bàn ghế gỗ', 'Tủ gỗ', 'Nội thất gỗ'],
     href: '/#contact',
   },
@@ -75,7 +78,10 @@ function LazyImage({ src, alt, className }) {
       data-src={src}
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       alt={alt}
+      width="800"
+      height="600"
       loading="lazy"
+      decoding="async"
       className={className}
     />
   );
@@ -101,7 +107,7 @@ function ServiceCard({ service, index }) {
       <div className="relative h-52 overflow-hidden">
         <LazyImage
           src={service.img}
-          alt={service.title}
+          alt={service.imgAlt}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {/* Icon badge */}

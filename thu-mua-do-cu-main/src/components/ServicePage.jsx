@@ -19,6 +19,10 @@ export default function ServicePage({ service }) {
   const relatedServices = Object.values(servicePages).filter(
     ({ slug }) => slug !== service.slug,
   );
+  const heroImageClassName = {
+    'thu-mua-cua-go-cu': 'h-full w-full object-cover object-[50%_35%]',
+    'thu-mua-cua-nhom-cu': 'h-full w-full object-cover object-[50%_55%]',
+  }[service.slug] ?? 'h-full w-full object-contain';
 
   return (
     <>
@@ -82,7 +86,7 @@ export default function ServicePage({ service }) {
                 alt={service.imageAlt}
                 width="960"
                 height="720"
-                className="h-full w-full object-contain"
+                className={heroImageClassName}
                 fetchPriority="high"
                 decoding="async"
               />
@@ -255,13 +259,27 @@ export default function ServicePage({ service }) {
               <a
                 key={related.slug}
                 href={`/${related.slug}/`}
-                className="group flex items-center justify-between gap-4 rounded-2xl bg-white p-6 shadow-card transition-transform hover:-translate-y-1"
+                className="group overflow-hidden rounded-2xl bg-white shadow-card transition-transform hover:-translate-y-1"
               >
-                <div>
-                  <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-amber">Xem thêm</p>
-                  <h3 className="font-display text-xl font-700 text-walnut">{related.label}</h3>
+                <div className="aspect-[4/3] w-full overflow-hidden bg-cream">
+                  <img
+                    src={related.image}
+                    alt={related.imageAlt}
+                    width="800"
+                    height="600"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={(event) => event.currentTarget.classList.add('loaded')}
+                  />
                 </div>
-                <ArrowRight size={20} className="flex-shrink-0 text-amber transition-transform group-hover:translate-x-1" />
+                <div className="flex items-end justify-between gap-4 p-5 sm:p-6 lg:p-7">
+                  <div>
+                    <h3 className="mb-2 font-display text-xl font-700 text-walnut lg:text-2xl">{related.label}</h3>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-amber transition-colors group-hover:text-walnut">Xem thêm</p>
+                  </div>
+                  <ArrowRight size={20} className="mb-0.5 flex-shrink-0 text-amber transition-transform group-hover:translate-x-1" />
+                </div>
               </a>
             ))}
           </div>

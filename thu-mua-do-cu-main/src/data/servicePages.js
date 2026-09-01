@@ -50,7 +50,7 @@ export const servicePages = {
     label: 'Thu mua cửa nhôm cũ',
     eyebrow: 'Dịch vụ cửa nhôm cũ tại TP.HCM',
     h1: 'Thu Mua Cửa Nhôm Cũ, Cửa Nhôm Kính Cũ Tại TP.HCM',
-    intro: 'Nhận thu mua cửa nhôm cũ và cửa nhôm kính đã qua sử dụng từ nhà ở, cửa hàng, văn phòng hoặc công trình cải tạo. Dịch vụ tập trung vào các bộ cửa nhôm phổ thông, vách nhôm kính và khung nhôm cần thanh lý.',
+    intro: 'Nhận thu mua cửa nhôm cũ và cửa nhôm kính đã qua sử dụng từ nhà ở, cửa hàng, văn phòng hoặc công trình cải tạo. Dịch vụ tiếp nhận cửa nhôm phổ thông, bộ cửa nhôm Xingfa, vách nhôm kính và khung nhôm cần thanh lý.',
     image: realImage('cua-nhom-kinh-trang-thuc-te.webp'),
     imageAlt: 'Cửa nhôm kính cũ cần thanh lý tại TP.HCM',
     overviewImage: realImage('thao-do-khung-nhom.webp'),
@@ -73,6 +73,8 @@ export const servicePages = {
       { src: realImage('cua-nhom-kinh-tap-ket.webp'), alt: 'Nhiều khung cửa nhôm kính được xếp cùng nhau', caption: 'Cửa nhôm kính đã tháo' },
       { src: realImage('khung-nhom-da-thao.webp'), alt: 'Các thanh khung nhôm đã tháo và tập kết', caption: 'Khung nhôm đã tháo' },
       { src: realImage('thao-do-khung-nhom.webp'), alt: 'Hiện trạng tháo dỡ khung nhôm trong công trình', caption: 'Tháo dỡ khung nhôm' },
+      { src: realImage('cua-nhom-kinh-xam-hai-canh.webp'), alt: 'Bộ cửa nhôm kính màu xám hai cánh kết hợp vách kính hai bên', caption: 'Bộ cửa nhôm kính hai cánh' },
+      { src: realImage('cua-nhom-kinh-xam-mat-tien-thuc-te.webp'), alt: 'Bộ cửa nhôm kính màu xám bốn cánh lắp tại mặt tiền nhà', caption: 'Bộ cửa nhôm kính mặt tiền' },
     ],
     evaluationTitle: 'Yếu tố cần kiểm tra trước khi thu mua',
     evaluation: [

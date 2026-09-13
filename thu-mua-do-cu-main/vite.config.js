@@ -11,6 +11,7 @@ export default defineConfig({
         'thu-mua-cua-go-cu': fileURLToPath(new URL('./thu-mua-cua-go-cu/index.html', import.meta.url)),
         'thu-mua-cua-nhom-cu': fileURLToPath(new URL('./thu-mua-cua-nhom-cu/index.html', import.meta.url)),
         'thu-mua-cua-nhom-xingfa-cu': fileURLToPath(new URL('./thu-mua-cua-nhom-xingfa-cu/index.html', import.meta.url)),
+        'thu-mua-cua-cuon-cu': fileURLToPath(new URL('./thu-mua-cua-cuon-cu/index.html', import.meta.url)),
       },
     },
   },

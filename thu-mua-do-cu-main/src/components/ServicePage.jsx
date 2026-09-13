@@ -22,6 +22,7 @@ export default function ServicePage({ service }) {
   const heroImageClassName = {
     'thu-mua-cua-go-cu': 'h-full w-full object-cover object-[50%_35%]',
     'thu-mua-cua-nhom-cu': 'h-full w-full object-cover object-[50%_55%]',
+    'thu-mua-cua-cuon-cu': 'h-full w-full object-cover object-center',
   }[service.slug] ?? 'h-full w-full object-contain';
 
   return (

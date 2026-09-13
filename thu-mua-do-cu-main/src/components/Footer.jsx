@@ -11,6 +11,7 @@ const SERVICES_LIST = [
   { label: 'Thu mua cửa gỗ cũ', href: '/thu-mua-cua-go-cu/' },
   { label: 'Thu mua cửa nhôm cũ', href: '/thu-mua-cua-nhom-cu/' },
   { label: 'Thu mua cửa nhôm Xingfa cũ', href: '/thu-mua-cua-nhom-xingfa-cu/' },
+  { label: 'Thu mua cửa cuốn cũ', href: '/thu-mua-cua-cuon-cu/' },
   { label: 'Đồ gỗ cũ khác', href: '/#services' },
   { label: 'Liên hệ thu mua tận nơi', href: '/#contact' },
 ];

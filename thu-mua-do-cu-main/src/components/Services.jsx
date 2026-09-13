@@ -42,6 +42,16 @@ const SERVICES = [
   },
   {
     id:    4,
+    icon:  <DoorClosed size={26} />,
+    title: 'Cửa Cuốn Cũ',
+    desc:  'Thu mua cửa cuốn cũ còn lắp đặt hoặc đã tháo dỡ, trao đổi theo loại cửa, kích thước và tình trạng thực tế.',
+    img:   '/images/thuc-te/cua-cuon-cu-cac-bo-da-thao.jpg',
+    imgAlt: 'Nhiều bộ cửa cuốn cũ đã tháo dỡ và cuộn gọn',
+    tags:  ['Cửa cuốn cũ', 'Nan cửa cuốn', 'Bộ cửa đã tháo'],
+    href:  '/thu-mua-cua-cuon-cu/',
+  },
+  {
+    id:    5,
     icon:  <Package size={26} />,
     title: 'Đồ Gỗ Cũ Khác',
     desc: 'Thu mua bàn ghế gỗ, tủ gỗ, đồ nội thất gỗ đã qua sử dụng — tình trạng bất kỳ, giá tốt nhất.',
@@ -146,7 +156,7 @@ function ServiceCard({ service, index }) {
           href={service.href}
           className="inline-flex items-center gap-1.5 text-sm font-body font-600 text-amber hover:text-walnut transition-colors duration-300 group/link"
         >
-          {service.id <= 3 ? 'Xem chi tiết dịch vụ' : 'Gửi yêu cầu'}
+          {service.href.startsWith('/thu-mua-') ? 'Xem chi tiết dịch vụ' : 'Gửi yêu cầu'}
           <ArrowRight size={15} className="group-hover/link:translate-x-1 transition-transform duration-300" />
         </a>
       </div>
@@ -183,7 +193,7 @@ export default function Services() {
         </motion.div>
 
         {/* ── Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}

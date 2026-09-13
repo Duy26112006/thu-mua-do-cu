@@ -1,3 +1,5 @@
+import { rollingDoorService } from './rollingDoorService';
+
 const REAL_IMAGE_BASE = '/images/thuc-te';
 const realImage = (filename) => `${REAL_IMAGE_BASE}/${filename}`;
 
@@ -133,6 +135,7 @@ export const servicePages = {
       { question: 'Có hỗ trợ tháo bộ cửa Xingfa đang lắp đặt không?', answer: 'Có thể trao đổi phương án tháo dỡ sau khi xem kết cấu, vị trí lắp đặt và lối vận chuyển tại công trình.' },
     ],
   },
+  'thu-mua-cua-cuon-cu': rollingDoorService,
 };
 
 export const getServicePageFromPath = (pathname) => {

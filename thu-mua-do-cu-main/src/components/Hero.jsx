@@ -1,12 +1,7 @@
 // Hero.jsx – Banner chính với parallax background và animated text
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Phone } from 'lucide-react';
-import {
-  handleContactConversion,
-  PHONE_NUMBER,
-  PHONE_URL,
-} from '../utils/googleAdsConversion';
+import { CheckCircle2 } from 'lucide-react';
 
 // Ảnh nền chính
 const HERO_IMG =
@@ -147,38 +142,6 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* Nút hành động */}
-          <motion.div
-            {...fadeUp(0.56)}
-            className="flex flex-wrap gap-4"
-          >
-            {/* Nút kéo xuống phần liên hệ */}
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-
-                document
-                  .querySelector('#contact')
-                  ?.scrollIntoView({
-                    behavior: 'smooth',
-                  });
-              }}
-              className="btn-primary text-base"
-            >
-              Báo Giá Ngay
-              <ArrowRight size={17} />
-            </a>
-
-            <a
-              href={PHONE_URL}
-              onClick={(event) => handleContactConversion(event, PHONE_URL)}
-              className="btn-ghost text-base inline-flex items-center gap-2"
-            >
-              <Phone size={17} />
-              Gọi Ngay {PHONE_NUMBER}
-            </a>
-          </motion.div>
         </div>
 
         {/* Thông tin nổi bật */}
@@ -196,7 +159,7 @@ export default function Hero() {
             delay: 0.7,
             ease: [0.4, 0, 0.2, 1],
           }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden"
+          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden"
           style={{
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(232,168,62,0.15)',

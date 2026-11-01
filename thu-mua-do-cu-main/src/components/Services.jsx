@@ -102,12 +102,13 @@ function ServiceCard({ service, index }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.12 });
 
   return (
-    <motion.article
+    <motion.a
       ref={ref}
+      href={service.href}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.12, ease: [0.4, 0, 0.2, 1] }}
-      className="card-hover rounded-2xl overflow-hidden group"
+      className="card-hover group block cursor-pointer overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-4"
       style={{
         background: '#fff',
         boxShadow: '0 4px 24px rgba(44,26,14,0.08)',
@@ -151,16 +152,13 @@ function ServiceCard({ service, index }) {
           ))}
         </div>
 
-        {/* CTA link */}
-        <a
-          href={service.href}
-          className="inline-flex items-center gap-1.5 text-sm font-body font-600 text-amber hover:text-walnut transition-colors duration-300 group/link"
-        >
+        {/* CTA label */}
+        <span className="inline-flex items-center gap-1.5 text-sm font-body font-600 text-amber transition-colors duration-300 group-hover:text-walnut">
           {service.href.startsWith('/thu-mua-') ? 'Xem chi tiết dịch vụ' : 'Gửi yêu cầu'}
-          <ArrowRight size={15} className="group-hover/link:translate-x-1 transition-transform duration-300" />
-        </a>
+          <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+        </span>
       </div>
-    </motion.article>
+    </motion.a>
   );
 }
 

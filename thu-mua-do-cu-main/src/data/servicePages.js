@@ -12,8 +12,8 @@ export const servicePages = {
     intro: 'Nhận thu mua các loại cửa gỗ đã qua sử dụng khi sửa nhà, thay cửa hoặc thanh lý công trình. Khách hàng có thể gửi hình ảnh qua Zalo để trao đổi trước về loại cửa, kích thước và tình trạng thực tế.',
     image: realImage('cua-go-4-canh-hoa-van-thuc-te.webp'),
     imageAlt: 'Cửa gỗ cũ được tháo dỡ để thu mua tại TP.HCM',
-    overviewImage: realImage('bo-cua-go-da-thao.webp'),
-    overviewImageAlt: 'Nhiều bộ cửa gỗ cũ đã được tháo và xếp cùng nhau',
+    overviewImage: realImage('cua-go-ba-bo-thuc-te.webp'),
+    overviewImageAlt: 'Ba bộ cửa gỗ cũ màu nâu đã được tháo và dựng cạnh nhau',
     overviewTitle: 'Những loại cửa gỗ cũ nhận thu mua',
     overview: [
       'Dịch vụ phù hợp với hộ gia đình, chủ nhà, đơn vị sửa chữa và công trình đang cần thanh lý cửa gỗ không còn sử dụng. Việc đánh giá dựa trên vật liệu, kết cấu, kích thước, số lượng và khả năng tháo dỡ tại địa điểm.',

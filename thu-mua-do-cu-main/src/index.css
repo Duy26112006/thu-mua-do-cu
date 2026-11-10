@@ -146,15 +146,36 @@ img[loading="lazy"].loaded {
   opacity: 1;
 }
 
-/* ─── Parallax hero ──────────────────────────────────── */
-.hero-bg {
-  will-change: transform;
+.home-hero {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(201, 123, 42, 0.16), transparent 34%),
+    linear-gradient(155deg, #4a1b14 0%, #35120e 52%, #24100d 100%);
+}
+
+.hero-title {
+  font-size: clamp(1.55rem, 6.4vw, 1.82rem);
+  line-height: 1.18;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-hero {
+    background:
+      radial-gradient(circle at 82% 44%, rgba(201, 123, 42, 0.2), transparent 28%),
+      linear-gradient(125deg, #4a1b14 0%, #35120e 50%, #24100d 100%);
+  }
 }
 
 /* ─── Number stat ────────────────────────────────────── */
 .stat-number {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.1rem, 4vw, 4rem);
   font-weight: 700;
   line-height: 1;
   color: var(--amber);

@@ -1,20 +1,23 @@
-// Hero.jsx – Banner chính với parallax background và animated text
-import { useEffect, useRef } from 'react';
+// Hero.jsx – Banner chính với bố cục nội dung và ảnh tách biệt
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
-// Ảnh nền chính
-const HERO_IMG =
-  'https://res.cloudinary.com/dhshucomg/image/upload/v1779519628/z7856807100962_3bcd34d39f175efe58f006b7b4658229_s2897y.jpg';
+// Ảnh WebP nguyên vẹn được chuyển đổi từ ảnh khách hàng cung cấp.
+const HERO_IMG = '/images/thuc-te/hero-trang-chu-moi.webp';
 
-// Các điểm nổi bật
 const BADGES = [
   'Khảo sát tận nơi',
   'Hỗ trợ tháo dỡ',
   'Thanh toán nhanh tại chỗ',
 ];
 
-// Hiệu ứng xuất hiện từ dưới lên
+const STATS = [
+  { num: '500+', label: 'Đơn thu mua' },
+  { num: '10+', label: 'Năm kinh nghiệm' },
+  { num: '100%', label: 'Khách hàng hài lòng' },
+  { num: '24h', label: 'Phản hồi & định giá' },
+];
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 36 },
   animate: { opacity: 1, y: 0 },
@@ -26,110 +29,52 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Hero() {
-  const bgRef = useRef(null);
-
-  // Hiệu ứng ảnh nền khi cuộn trang
-  useEffect(() => {
-    const onScroll = () => {
-      if (!bgRef.current) return;
-
-      const offset = window.scrollY * 0.38;
-      bgRef.current.style.transform = `translateY(${offset}px)`;
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden grain-overlay"
+      className="home-hero relative overflow-hidden grain-overlay"
     >
-      {/* Ảnh nền */}
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          ref={bgRef}
-          src={HERO_IMG}
-          alt="Thu mua cửa gỗ cũ, cửa nhôm kính cũ và cửa nhôm Xingfa tại TP.HCM"
-          className="hero-bg absolute inset-0 w-full h-[120%] object-cover -top-[10%]"
-          loading="eager"
-          fetchPriority="high"
-        />
-
-        {/* Lớp phủ tối */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(115deg, rgba(44,26,14,0.94) 0%, rgba(44,26,14,0.78) 50%, rgba(44,26,14,0.55) 100%)',
-          }}
-        />
-      </div>
-
-      {/* Hiệu ứng trang trí bên phải */}
       <div
-        className="absolute right-0 top-0 bottom-0 w-[38vw] hidden lg:block pointer-events-none"
-        style={{
-          background:
-            'linear-gradient(to left, rgba(201,123,42,0.08) 0%, transparent 100%)',
-          clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0% 100%)',
-        }}
+        className="pointer-events-none absolute -right-24 top-20 h-80 w-80 rounded-full blur-3xl md:h-[30rem] md:w-[30rem]"
+        style={{ background: 'rgba(201,123,42,0.12)' }}
       />
 
-      {/* Nội dung chính */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 lg:px-16 py-32 w-full">
-        <div className="max-w-2xl">
-
-          {/* Dòng nhỏ phía trên */}
-          <motion.p
-            {...fadeUp(0.1)}
-            className="section-tag text-amber mb-5"
-          >
-            Thu mua cửa cũ tận nơi · TP.HCM
-          </motion.p>
-
-          {/* Tiêu đề chính */}
+      <div className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-6 px-4 pb-10 pt-[88px] md:gap-8 md:px-10 md:pb-16 md:pt-28 lg:min-h-screen lg:grid-cols-[minmax(0,1.18fr)_minmax(380px,0.82fr)] lg:items-center lg:gap-12 lg:px-12 lg:py-28 xl:gap-16 2xl:px-16">
+        <div className="min-w-0">
           <motion.h1
-            {...fadeUp(0.22)}
-            className="font-display text-cream font-700 leading-[1.1] mb-6"
-            style={{
-              fontSize: 'clamp(1.8rem, 4vw, 3.5rem)',
-            }}
+            {...fadeUp(0.1)}
+            className="hero-title mb-4 font-display font-700 text-cream md:mb-6"
           >
             Thu Mua{' '}
-            <span className="text-gradient italic">
+            <span className="text-gradient md:italic">
               Cửa Gỗ Cũ, Cửa Nhôm Kính Cũ
             </span>
-            <br />
+            <br className="hidden md:block" />
+            <span className="md:hidden">{' '}</span>
             & Cửa Nhôm Xingfa Cũ{' '}
-            <span className="text-gradient italic">
+            <span className="text-gradient md:italic">
               Tại TP.HCM
             </span>
           </motion.h1>
 
-          {/* Mô tả */}
           <motion.p
-            {...fadeUp(0.36)}
-            className="font-body text-cream/75 text-base md:text-lg leading-relaxed mb-8 max-w-xl"
+            {...fadeUp(0.24)}
+            className="mb-5 max-w-xl font-body text-sm leading-6 text-cream/80 sm:text-base md:mb-8 md:text-lg md:leading-relaxed"
           >
             Nhận thu mua cửa gỗ cũ, cửa nhôm kính cũ và cửa nhôm Xingfa cũ
             tại TP.HCM. Khảo sát tận nơi, hỗ trợ tháo dỡ và thanh toán nhanh
             tại chỗ.
           </motion.p>
 
-          {/* Điểm nổi bật */}
           <motion.div
-            {...fadeUp(0.46)}
-            className="flex flex-wrap gap-3 mb-10"
+            {...fadeUp(0.36)}
+            data-hero-benefits
+            className="flex flex-wrap gap-2 md:mb-10 md:gap-3"
           >
             {BADGES.map((badge) => (
               <span
                 key={badge}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-body font-600 tracking-wide"
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-body text-[11px] font-600 tracking-wide md:px-4 md:py-2 md:text-xs"
                 style={{
                   background: 'rgba(255,255,255,0.08)',
                   border: '1px solid rgba(232,168,62,0.4)',
@@ -142,93 +87,68 @@ export default function Hero() {
             ))}
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.62,
+              ease: [0.4, 0, 0.2, 1],
+            }}
+            className="hidden grid-cols-4 gap-px overflow-hidden rounded-2xl md:grid"
+            style={{
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(232,168,62,0.2)',
+            }}
+          >
+            {STATS.map(({ num, label }) => (
+              <div
+                key={label}
+                className="px-3 py-5 text-center backdrop-blur-sm xl:px-5"
+                style={{ background: 'rgba(44,26,14,0.38)' }}
+              >
+                <div className="stat-number">{num}</div>
+                <p className="mt-1 font-body text-[10px] tracking-wide text-cream/60 xl:text-xs">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Thông tin nổi bật */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.7,
-            ease: [0.4, 0, 0.2, 1],
-          }}
-          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden"
-          style={{
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(232,168,62,0.15)',
-          }}
+        <motion.figure
+          {...fadeUp(0.46)}
+          data-mobile-hero-collage
+          className="mx-auto w-full max-w-[520px] overflow-hidden rounded-[22px] border border-amber/35 bg-[#35120e] shadow-[0_24px_65px_rgba(10,4,3,0.38)] md:rounded-[26px] lg:justify-self-end lg:rounded-[28px]"
         >
-          {[
-            {
-              num: '500+',
-              label: 'Đơn thu mua',
-            },
-            {
-              num: '10+',
-              label: 'Năm kinh nghiệm',
-            },
-            {
-              num: '100%',
-              label: 'Khách hàng hài lòng',
-            },
-            {
-              num: '24h',
-              label: 'Phản hồi & định giá',
-            },
-          ].map(({ num, label }) => (
-            <div
-              key={label}
-              className="px-6 py-5 text-center backdrop-blur-sm"
-              style={{
-                background: 'rgba(44,26,14,0.45)',
-              }}
-            >
-              <div className="stat-number">
-                {num}
-              </div>
-
-              <p className="text-cream/60 text-xs font-body mt-1 tracking-wide">
-                {label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
+          <img
+            src={HERO_IMG}
+            alt="Cửa gỗ cũ, cửa nhôm kính cũ và cửa nhôm Xingfa cũ thực tế"
+            width="1065"
+            height="1476"
+            className="block h-auto w-full"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </motion.figure>
       </div>
 
-      {/* Chỉ dẫn cuộn xuống */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{
-          delay: 1.2,
-          duration: 0.6,
-        }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 xl:flex"
       >
-        <span className="text-cream/40 text-xs font-body tracking-widest uppercase">
+        <span className="font-body text-xs uppercase tracking-widest text-cream/40">
           Cuộn xuống
         </span>
-
         <motion.div
-          animate={{
-            y: [0, 8, 0],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.6,
-            ease: 'easeInOut',
-          }}
-          className="w-px h-8 rounded-full"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+          className="h-8 w-px rounded-full"
           style={{
-            background:
-              'linear-gradient(to bottom, rgba(232,168,62,0.6), transparent)',
+            background: 'linear-gradient(to bottom, rgba(232,168,62,0.6), transparent)',
           }}
         />
       </motion.div>

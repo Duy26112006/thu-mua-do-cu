@@ -24,6 +24,9 @@ export default function ServicePage({ service }) {
     'thu-mua-cua-nhom-cu': 'h-full w-full object-cover object-[50%_55%]',
     'thu-mua-cua-cuon-cu': 'h-full w-full object-cover object-center',
   }[service.slug] ?? 'h-full w-full object-contain';
+  const overviewImageClassName = service.slug === 'thu-mua-cua-go-cu'
+    ? 'h-full w-full object-cover object-[50%_80%]'
+    : 'h-full w-full object-cover';
 
   return (
     <>
@@ -114,7 +117,7 @@ export default function ServicePage({ service }) {
               alt={service.overviewImageAlt}
               width="960"
               height="720"
-              className="h-full w-full object-cover"
+              className={overviewImageClassName}
               loading="lazy"
               decoding="async"
               onLoad={(event) => event.currentTarget.classList.add('loaded')}

@@ -27,6 +27,7 @@ export default function ServicePage({ service }) {
   const overviewImageClassName = service.slug === 'thu-mua-cua-go-cu'
     ? 'h-full w-full object-cover object-[50%_80%]'
     : 'h-full w-full object-cover';
+  const hasHeroCollage = Array.isArray(service.heroImages) && service.heroImages.length === 3;
 
   return (
     <>
@@ -85,15 +86,37 @@ export default function ServicePage({ service }) {
             </div>
 
             <figure className="aspect-[4/3] overflow-hidden rounded-[22px] border border-white bg-white shadow-[0_22px_60px_rgba(94,34,34,0.16)] md:rounded-[28px] lg:h-[clamp(400px,32vw,500px)] lg:aspect-auto">
-              <img
-                src={service.image}
-                alt={service.imageAlt}
-                width="960"
-                height="720"
-                className={heroImageClassName}
-                fetchPriority="high"
-                decoding="async"
-              />
+              {hasHeroCollage ? (
+                <div className="grid h-full w-full grid-cols-[58%_42%] grid-rows-2 gap-1.5 bg-white p-1.5">
+                  {service.heroImages.map((image, index) => (
+                    <div
+                      key={image.src}
+                      className={`overflow-hidden bg-sand ${index === 0 ? 'row-span-2' : ''}`}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        className={`h-full w-full object-cover ${image.position}`}
+                        loading="eager"
+                        fetchPriority={index === 0 ? 'high' : 'auto'}
+                        decoding="async"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <img
+                  src={service.image}
+                  alt={service.imageAlt}
+                  width="960"
+                  height="720"
+                  className={heroImageClassName}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              )}
             </figure>
           </div>
         </div>

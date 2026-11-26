@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { handleContactConversion } from '../utils/googleAdsConversion';
 
-export default function ZaloFloat({ phoneNumber = '0938228764', hideInitially = false }) {
+export default function ZaloFloat({ phoneNumber = '0334636810', hideInitially = false }) {
   const phoneUrl = `tel:${phoneNumber}`;
   const zaloUrl = `https://zalo.me/${phoneNumber}`;
   const [isVisible, setIsVisible] = useState(!hideInitially);

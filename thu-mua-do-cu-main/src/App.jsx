@@ -32,7 +32,7 @@ export default function App() {
       </main>
       <Footer />
       <ZaloFloat
-        phoneNumber="0938228764"
+        phoneNumber="0334636810"
         hideInitially={Boolean(servicePage)}
       />
     </>

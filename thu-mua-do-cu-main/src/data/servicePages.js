@@ -43,7 +43,7 @@ export const servicePages = {
     faq: [
       { question: 'Cửa gỗ đã cũ hoặc trầy xước có thu mua không?', answer: 'Có thể tiếp nhận để xem xét. Tình trạng bề mặt, kết cấu, loại gỗ và khả năng tái sử dụng sẽ được đánh giá qua hình ảnh hoặc khảo sát thực tế.' },
       { question: 'Có nhận tháo dỡ cửa gỗ tại nhà không?', answer: 'Có hỗ trợ trao đổi phương án tháo dỡ tại địa điểm. Cách thực hiện phụ thuộc vào kết cấu bộ cửa và điều kiện vận chuyển thực tế.' },
-      { question: 'Cần chuẩn bị gì để được xem cửa nhanh?', answer: 'Bạn nên gửi ảnh rõ toàn bộ cửa, số lượng, kích thước ước tính và địa chỉ tại TP.HCM qua Zalo 0938228764.' },
+      { question: 'Cần chuẩn bị gì để được xem cửa nhanh?', answer: 'Bạn nên gửi ảnh rõ toàn bộ cửa, số lượng, kích thước ước tính và địa chỉ tại TP.HCM qua Zalo 0334636810.' },
       { question: 'Chỉ có một bộ cửa gỗ thì có thể liên hệ không?', answer: 'Có. Bạn có thể gửi thông tin trước để đội thu mua kiểm tra loại cửa và sắp xếp trao đổi phù hợp.' },
     ],
   },

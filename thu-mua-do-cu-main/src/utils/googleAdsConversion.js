@@ -1,4 +1,4 @@
-export const PHONE_NUMBER = '0938228764';
+export const PHONE_NUMBER = '0334636810';
 export const PHONE_URL = `tel:${PHONE_NUMBER}`;
 export const ZALO_URL = `https://zalo.me/${PHONE_NUMBER}`;
 

@@ -4,7 +4,6 @@ import {
   CheckCircle2,
   ChevronDown,
   Home,
-  MessageCircle,
   Phone,
 } from 'lucide-react';
 import { servicePages } from '../data/servicePages';
@@ -80,7 +79,7 @@ export default function ServicePage({ service }) {
                   onClick={(event) => handleContactConversion(event, ZALO_URL, { openInNewTab: true })}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0068FF] px-5 py-3.5 text-sm font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 sm:px-7"
                 >
-                  <MessageCircle size={17} /> Gửi ảnh qua Zalo
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="" width="18" height="18" className="h-[18px] w-[18px] rounded object-contain" /> Gửi ảnh qua Zalo
                 </a>
               </div>
             </div>
@@ -250,7 +249,7 @@ export default function ServicePage({ service }) {
               onClick={(event) => handleContactConversion(event, ZALO_URL, { openInNewTab: true })}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0068FF] px-6 py-3.5 font-body text-sm font-semibold text-white sm:w-auto"
             >
-              <MessageCircle size={17} /> Zalo {PHONE_NUMBER}
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="" width="18" height="18" className="h-[18px] w-[18px] rounded object-contain" /> Zalo {PHONE_NUMBER}
             </a>
           </aside>
         </div>

@@ -1,5 +1,5 @@
 // Footer.jsx – Footer đầy đủ với link, thông tin, copyright
-import { Phone, MessageSquare, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, MapPin, ChevronRight } from 'lucide-react';
 import {
   handleContactConversion,
   PHONE_NUMBER,
@@ -64,7 +64,7 @@ export default function Footer() {
                 <Phone size={14} className="text-amber flex-shrink-0" /> {PHONE_NUMBER}
               </a>
               <a href={ZALO_URL} target="_blank" rel="noopener noreferrer" onClick={(event) => handleContactConversion(event, ZALO_URL, { openInNewTab: true })} className="flex items-center gap-2.5 text-cream/70 hover:text-gold text-sm font-body transition-colors duration-300">
-                <MessageSquare size={14} className="text-amber flex-shrink-0" /> Zalo: {PHONE_NUMBER}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="" width="16" height="16" className="h-4 w-4 flex-shrink-0 rounded object-contain" /> Zalo: {PHONE_NUMBER}
               </a>
               <span className="flex items-start gap-2.5 text-cream/70 text-sm font-body">
                 <MapPin size={14} className="text-amber flex-shrink-0 mt-0.5" /> TP. Hồ Chí Minh

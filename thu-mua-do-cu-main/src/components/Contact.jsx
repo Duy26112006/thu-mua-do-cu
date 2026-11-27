@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Phone, MessageCircle, MapPin, Clock, Star } from "lucide-react";
+import { Phone, MapPin, Clock, Star } from "lucide-react";
 import {
   handleContactConversion,
   PHONE_URL,
@@ -32,14 +32,16 @@ export default function Contact() {
             <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><Phone size={24} /></div>
             <div className="text-left">
               <p className="text-xs opacity-80 font-normal tracking-widest uppercase mb-0.5">Gọi điện ngay</p>
-              <p className="text-2xl font-display font-700 leading-none">0938 228 764</p>
+              <p className="font-body text-2xl font-700 leading-none tracking-wide tabular-nums">0334 636 810</p>
             </div>
           </a>
           <a href={ZALO_URL} target="_blank" rel="noopener noreferrer" onClick={(event) => handleContactConversion(event, ZALO_URL, { openInNewTab: true })} className="flex items-center justify-center gap-4 px-6 sm:px-10 py-6 rounded-2xl text-white font-body font-semibold transition-all duration-300 hover:-translate-y-1" style={{ background: "linear-gradient(135deg, #0068FF, #0099FF)", boxShadow: "0 8px 30px rgba(0,104,255,0.4)" }}>
-            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><MessageCircle size={24} /></div>
+            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="" width="36" height="36" className="h-9 w-9 object-contain" />
+            </div>
             <div className="text-left">
               <p className="text-xs opacity-80 font-normal tracking-widest uppercase mb-0.5">Nhắn Zalo ngay</p>
-              <p className="text-2xl font-display font-700 leading-none">0938 228 764</p>
+              <p className="font-body text-2xl font-700 leading-none tracking-wide tabular-nums">0334 636 810</p>
             </div>
           </a>
         </motion.div>
